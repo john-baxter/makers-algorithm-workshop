@@ -1,8 +1,8 @@
 class TimingCode
 
-  def timing_code #(array, method) parameters commented out during development
+  def timing_code (array, method_to_time)
     start = time_now_ms
-    sleep(5) # placeholder for real method. this will be updated once I'm happy with the other logic.
+    array.send(method_to_time)
     fin = time_now_ms
     time_calc(start, fin)
   end
