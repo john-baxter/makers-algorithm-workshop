@@ -1,4 +1,6 @@
-require './test_run.rb'
+require './looping.rb'
 
-attempt = TestRun.new
-attempt.one_test_run(:shuffle)
+attempt = TestLooping.new
+# attempt.times_loop(:shuffle)
+# attempt.times_loop(:reverse)
+attempt.times_loop(:sort)
