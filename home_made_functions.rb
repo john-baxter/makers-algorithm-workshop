@@ -6,5 +6,27 @@ def my_reverse(array)
   result_array
 end
 
-# test_array = *1..20
-# puts my_reverse(test_array)
+def my_shuffle(array)
+  result_array = []
+
+=begin
+  take a random element
+  place it into the new array
+  remove it from the original array
+  repeat
+
+  OR
+
+  take the first OR last element (I think it wouldn't matter which)
+  randomly shove it into the new array
+  remove it from the original array
+  repeat
+
+  OR
+
+  take a random element
+  randomly shove it into the new array
+  remove it from the original array
+  repeat
+
+=end
