@@ -6,5 +6,10 @@ def my_reverse(array)
   result_array
 end
 
-# test_array = *1..20
-# puts my_reverse(test_array)
+def my_shuffle(array)
+  result_array = []
+  while array.length != 0
+    result_array << array.delete_at(rand(array.length))
+  end
+  result_array
+end

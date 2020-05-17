@@ -41,3 +41,43 @@ still TO DO:
 - Some refactoring will be necessary; there are parts of the TestRun class that were included at the start when I still thought I might be working on the loops already
 
 I probably won't do anything beyond writing data to a file; I expect to manually paste these data into a spreadsheet and generate my graphs there rather than go to the effort of integrating any graph generating gems or other automated means.
+
+### 17 May 2020
+### 20200517
+#### Happy constitution day! :)
+#### Update
+
+Since the last update I have done some work each day and the project has moved on quite a bit - sorry for not remembering to make time each day to update this document.\
+To address the points made above:\
+HAVE DONE:\
+- I decided not to implement the outputting to a file. I was aware that time was passing; and although this would be an elegant solution, and one which I may still return to later I made a decision not to spend too much time on it now and move on with the generation of data for the various methods
+- There is now a new class for looping but it only has one method which outputs "round X" and then the list of data. It is presented in a single long column and needs to be manipulated manually for entering into the spreadsheet
+    - I decided that iterating over the increasing array size didn't need to be in the Looping class, but that this was in the TestRun class, justified by the fact that a 'single' test involves 20 (+1 because I'm including a 0 length array) executions of the method/function.
+
+#### Progress beyond last update
+
+Data has been generated and plotted for the following built-in Ruby methods:
+- `.shuffle`
+- `.reverse`
+- `.sort`
+
+My own home-made functions have been prepared as follows:
+- `my_reverse`
+- `my_shuffle`
+
+and data for these have been entered to the spreadsheet too.\
+The spreadsheet is data_spreadsheets.ods and is available inthis repo. The spreadsheet is set up to take the median of the five datapoints per array length and plot these against the array length each time. 
+
+#### Conclusions so far
+`.reverse` is linear (~3.5x)\
+`my_reverse` is linear (~58x)
+
+`.shuffle` is linear (~21x)\
+`my_shuffle` is quadratic (~65x^2)
+
+`.sort` is quadratic (~0.1x^2)
+
+### Next actions
+There is another workshop comming up tomorrow; untill then I will see if I can think of any ways to improve `my_shuffle` but for now I've done what I intended.
+
+At present the executing of the code is a little clunky because certain functions are called in certain circumstances (depending on whether I want an input to be an ordered array or pre-shuffled) in future this will become worse because there will be other formats of array required later in other functions. It would be good if I could refactor the code to allow tests to be run by passing extra arguments rather than by having to remember to change the code/which lines to coment out or reinstate.
