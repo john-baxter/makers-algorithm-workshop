@@ -1,10 +1,6 @@
 require './looping.rb'
 require './home_made_functions.rb'
 
-# array = *1..5
-# puts my_reverse(array)
-# puts my_shuffle(array)
-
 attempt = TestLooping.new
 # attempt.times_loop(:shuffle)
 # attempt.times_loop(:reverse)
