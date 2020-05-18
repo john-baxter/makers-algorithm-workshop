@@ -22,15 +22,7 @@ class TimingCode
     (Process.clock_gettime(Process::CLOCK_MONOTONIC).to_f * 1000000).to_i
   end
   
-  # def time_now_ms
-  #   (Time.now.to_f * 1000).to_i
-  # end
-  
-  # def time_now_micro_s
-  #   (Time.now.to_f * 1000000).to_i
-  # end
-
-  def time_calc(t_one, t_two)
+    def time_calc(t_one, t_two)
     puts t_two - t_one
   end
 

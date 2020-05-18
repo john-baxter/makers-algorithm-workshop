@@ -81,3 +81,14 @@ The spreadsheet is data_spreadsheets.ods and is available inthis repo. The sprea
 There is another workshop comming up tomorrow; untill then I will see if I can think of any ways to improve `my_shuffle` but for now I've done what I intended.
 
 At present the executing of the code is a little clunky because certain functions are called in certain circumstances (depending on whether I want an input to be an ordered array or pre-shuffled) in future this will become worse because there will be other formats of array required later in other functions. It would be good if I could refactor the code to allow tests to be run by passing extra arguments rather than by having to remember to change the code/which lines to coment out or reinstate.
+
+### 18 May 2020
+### 20200518
+
+Today the plan is to try to make improvements to `my_shuffle` and/or the smoothness with which the program runs (in terms of calling the correct functions, using appropriate arrays).
+I've identified the `.delete_at` method as being the most time-consuming part of `my_shuffle` so the plan is to implement a new version which doesn't use this. maybe something like:
+```
+iterate through the array
+on each iteration shove the element into a new array at a random spot
+```
+This is similar to one of the plans I discarded earlier when I started working on `my_shuffle` anyway/
