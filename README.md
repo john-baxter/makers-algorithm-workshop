@@ -84,11 +84,19 @@ At present the executing of the code is a little clunky because certain function
 
 ### 18 May 2020
 ### 20200518
-
+#### Plan
 Today the plan is to try to make improvements to `my_shuffle` and/or the smoothness with which the program runs (in terms of calling the correct functions, using appropriate arrays).
 I've identified the `.delete_at` method as being the most time-consuming part of `my_shuffle` so the plan is to implement a new version which doesn't use this. maybe something like:
 ```
 iterate through the array
 on each iteration shove the element into a new array at a random spot
 ```
-This is similar to one of the plans I discarded earlier when I started working on `my_shuffle` anyway/
+This is similar to one of the plans I discarded earlier when I started working on `my_shuffle` anyway.
+
+#### Outcome
+I've executed the above plan, the new version of `my_shuffle` is better...a little.\
+It now has changed from 65x^2 - 58x^2.\
+Clearly this is not the change we were looking for. I think the problem with `.delete_at` and `.insert` is the same - that ~half of the elements have to have their indices re-assigned in each iteration of the loop. 
+
+#### New plan
+Generate the `result_array` to have the correct number of elements, then change the elements one-by-one, the expectation being that changing the value of an already-existing array element is 'better' than reassigning a bunch of indices. This might make it more difficult to avoid making undesirable duplicates.

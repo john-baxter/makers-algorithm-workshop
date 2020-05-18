@@ -6,7 +6,7 @@ def my_reverse(array)
   result_array
 end
 
-def my_shuffle_(array)
+def my_shuffle_1(array)
   result_array = []
   while array.length != 0
     result_array << array.delete_at(rand(array.length))
