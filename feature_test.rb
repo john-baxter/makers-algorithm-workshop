@@ -7,3 +7,4 @@ attempt = TestLooping.new
 # attempt.times_loop(:sort)
 # attempt.times_loop(:my_reverse)
 attempt.times_loop(:my_shuffle)
+
