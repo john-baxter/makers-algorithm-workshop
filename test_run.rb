@@ -11,7 +11,6 @@ class TestRun
 
   def initialize
     @counter = 0
-    # @counter_max = ArrayGenerator.COUNTER_MAX
     @test_run = TimingCode.new
   end
   
@@ -26,7 +25,6 @@ class TestRun
   end
   
   def full_run_through(function_to_time, array_to_use)
-    # while @counter <= @array_to_use.counter_max
     while @counter <= COUNTER_MAX
       one_test_run(function_to_time, array_to_use)
     end
