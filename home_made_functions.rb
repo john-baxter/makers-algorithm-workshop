@@ -22,7 +22,7 @@ def my_shuffle_2(array)
   result_array
 end
 
-def my_shuffle(array)
+def my_shuffle_3(array)
   result_array = Array.new(array.length) { |i| nil }
   array.each do |element|
     loop do
@@ -34,4 +34,14 @@ def my_shuffle(array)
     end
   end
   result_array
+end
+
+# my_shuffle_4
+def my_shuffle(array)
+  result_array = []
+  while array.length != 0
+    rand_index = rand(array.length)
+    array[rand_index], array[-1] = array[rand_index]
+    result_array << array.pop
+  end
 end
