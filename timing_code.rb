@@ -2,7 +2,6 @@ class TimingCode
 
   def timing_code(function_to_time, array_to_use)
     start = process_clock_gettime
-    # array = test_to_loop.method(array_to_use).call
     method(function_to_time).call(array_to_use)
     fin = process_clock_gettime
     time_calc_micro_s(start, fin)

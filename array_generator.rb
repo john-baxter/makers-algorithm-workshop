@@ -1,29 +1,24 @@
-class ArrayGenerator #< Array
+class ArrayGenerator
 
   attr_reader :array
   # attr_reader :COUNTER_MAX
+  # attr_reader :TEST_ARRAY_INCREMENT
+  # attr_reader :TEST_ARRAY_LIMIT
+  # attr_reader :counter_max
   
-  TEST_ARRAY_FIRST = 1
-  TEST_ARRAY_LIMIT = 25
-  # TEST_ARRAY_LIMIT = 100000
-  TEST_ARRAY_INCREMENT = 5
   # TEST_ARRAY_INCREMENT = 5000
-  COUNTER_MAX = TEST_ARRAY_LIMIT/TEST_ARRAY_INCREMENT
+  # TEST_ARRAY_LIMIT = 100000
+  # COUNTER_MAX = TEST_ARRAY_LIMIT/TEST_ARRAY_INCREMENT
   
-  def initialize(counter, array_to_use)
-    # @counter = counter
-    # @test_array = self.send(array_to_use, counter)
-    # @array = method(array_to_use).call(counter)
-    @array = self.send(array_to_use, counter)
+  def initialize(counter, array_to_use, test_array_increment)#, test_array_limit)
+    # @test_array_limit = test_array_limit
+    # @test_array_increment = test_array_increment
+    @array = self.send(array_to_use, counter, test_array_increment)
+    # @counter_max = TEST_ARRAY_LIMIT/TEST_ARRAY_INCREMENT
   end
 
-  def int_array_sequential(counter)
-    # test_array = *TEST_ARRAY_FIRST..(TEST_ARRAY_INCREMENT)
-    # p counter
-    Array.new(counter * TEST_ARRAY_INCREMENT) { |i| i.to_i }
-    # @test_array = Array.new(counter * TEST_ARRAY_INCREMENT) { |i| i.to_i }
-    # print test_array
-    # test_array = *TEST_ARRAY_FIRST..(TEST_ARRAY_INCREMENT * counter)
+  def int_array_sequential(counter, test_array_increment)
+    Array.new(counter * test_array_increment) { |i| i.to_i }
   end
   
   def int_array_shuffle(counter)
@@ -36,5 +31,3 @@ class ArrayGenerator #< Array
   end
 
 end
-
-# trial_array = ArrayToUse.new(5, int_array_sequential)

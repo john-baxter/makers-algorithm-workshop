@@ -15,8 +15,3 @@ def my_shuffle(array)
   # print result_array
   result_array
 end
-
-def test_function(array)
-  puts array
-end
-

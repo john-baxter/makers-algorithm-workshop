@@ -2,8 +2,6 @@ require './test_run.rb'
 
 class TestLooping
 
-  # TIMES_TO_LOOP = 1
-  # TIMES_TO_LOOP = 3
   TIMES_TO_LOOP = 5
 
   def initialize
