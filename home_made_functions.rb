@@ -1,64 +1,87 @@
 def my_reverse(array)
-  result_array = []
+  return_array = []
   while array.length != 0
-    result_array << array.pop
+    return_array << array.pop
   end
-  result_array
+  return_array
 end
 
 def my_shuffle_1(array)
-  result_array = []
+  return_array = []
   while array.length != 0
-    result_array << array.delete_at(rand(array.length))
+    return_array << array.delete_at(rand(array.length))
   end
-  result_array
+  return_array
 end
 
 def my_shuffle_2(array)
-  result_array = []
+  return_array = []
   array.each do |element|
-    result_array.insert(rand(result_array.length), element)
+    return_array.insert(rand(return_array.length), element)
   end
-  result_array
+  return_array
 end
 
 def my_shuffle_3(array)
-  result_array = Array.new(array.length) { |i| nil }
+  return_array = Array.new(array.length) { |i| nil }
   array.each do |element|
     loop do
       rand_idx = rand(array.length)
-      if result_array[rand_idx] == nil
-        result_array[rand_idx] = element
+      if return_array[rand_idx] == nil
+        return_array[rand_idx] = element
         break
       end
     end
   end
-  result_array
+  return_array
 end
 
 # my_shuffle_4
 def my_shuffle(array)
-  result_array = []
+  return_array = []
   while array.length != 0
     rand_index = rand(array.length)
     array[rand_index], array[-1] = array[rand_index]
-    result_array << array.pop
+    return_array << array.pop
   end
 end
 
 def my_binary_sort(array)
-  result_array_zero = []
-  result_array_one = []
+  return_array_zero = []
+  return_array_one = []
   array.each do |bit|
     if bit == 0
-      result_array_zero << bit
+      return_array_zero << bit
     elsif bit == 1
-      result_array_one << bit
+      return_array_one << bit
     end
   end
-  [result_array_zero, result_array_one].flatten
+  [return_array_zero, return_array_one].flatten
 end
 
 def my_find_duplicates(array)
-  
+  return_array = []
+  counter = 0
+  array.length.times do
+    duplicate_found = false
+    duplicate_already_seen = false
+    array[counter+1..-1].each do |element|
+      if element == array[counter]
+        duplicate_found = true
+        break
+      end
+    end
+    if duplicate_found == true
+      return_array.each do |duplicate|
+        if duplicate == array[counter]
+          duplicate_already_seen = true
+        end
+      end
+      if duplicate_already_seen == false && duplicate_found == true
+        return_array << array[counter]
+      end
+    end
+    counter += 1
+  end
+  return_array
 end

@@ -99,7 +99,7 @@ It now has changed from 65x^2 - 58x^2.\
 Clearly this is not the change we were looking for. I think the problem with `.delete_at` and `.insert` is the same - that ~half of the elements have to have their indices re-assigned in each iteration of the loop. 
 
 #### New plan
-Generate the `result_array` to have the correct number of elements, then change the elements one-by-one, the expectation being that changing the value of an already-existing array element is 'better' than reassigning a bunch of indices. This might make it more difficult to avoid making undesirable duplicates.
+Generate the `return_array` to have the correct number of elements, then change the elements one-by-one, the expectation being that changing the value of an already-existing array element is 'better' than reassigning a bunch of indices. This might make it more difficult to avoid making undesirable duplicates.
 
 ### 21 May 2020
 ### 20200521
