@@ -45,3 +45,16 @@ def my_shuffle(array)
     result_array << array.pop
   end
 end
+
+def my_binary_sort(array)
+  result_array_zero = []
+  result_array_one = []
+  array.each do |bit|
+    if bit == 0
+      result_array_zero << bit
+    elsif bit == 1
+      result_array_one << bit
+    end
+  end
+  [result_array_zero, result_array_one].flatten
+end
