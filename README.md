@@ -100,3 +100,13 @@ Clearly this is not the change we were looking for. I think the problem with `.d
 
 #### New plan
 Generate the `result_array` to have the correct number of elements, then change the elements one-by-one, the expectation being that changing the value of an already-existing array element is 'better' than reassigning a bunch of indices. This might make it more difficult to avoid making undesirable duplicates.
+
+### 21 May 2020
+### 20200521
+#### Update
+Since the last update there have been some more updates and a few more functions added - and significant refactoring of the code. 
+
+I now have a neat way to generate whatever array is needed for a given test, by using the `class ArrayGenerator` and the method fro this class can be passed as an argument when calling the test run through the controller. Each time I need a different type of array I am adding more methods there; I now have sequential and shuffled numerical lists, a random selection of binary bits, and an unordered selection of digits which will have duplication of some elements. Later I expecxt to need some arrays of strings; so I will probably import some Lorem Ipsum text from somewhere and use this.
+
+#### Plan
+The current plan is to implement a simple (brute-force) duplication check method - which is not expected to be linear, then to try to improve the efficiency of this by using a hash to record "seen" indicies and futher to improve by using a `Set`. Use of a set will require some learning because I've never used this data structure type before.

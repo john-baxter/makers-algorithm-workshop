@@ -58,3 +58,7 @@ def my_binary_sort(array)
   end
   [result_array_zero, result_array_one].flatten
 end
+
+def my_find_duplicates(array)
+  
+end

@@ -18,4 +18,8 @@ class ArrayGenerator
     Array.new(counter * test_array_increment) { |i| i = rand(2) }
   end
 
+  def int_array_with_duplicates_shuffle(counter, test_array_increment)
+    Array.new(counter * test_array_increment) { |i| i = rand(counter * test_array_increment * 0.75) }
+  end
+
 end
