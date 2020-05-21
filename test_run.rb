@@ -19,7 +19,7 @@ class TestRun
   end
 
   def one_test_run(function_to_time, array_to_use)
-    @array_to_use = ArrayGenerator.new(@counter, array_to_use, TEST_ARRAY_INCREMENT)
+    @array_to_use = ArrayGenerator.new(array_to_use, @counter, TEST_ARRAY_INCREMENT)
     @test_run.timing_code(function_to_time, @array_to_use.array)
     increment_the_counter
   end
