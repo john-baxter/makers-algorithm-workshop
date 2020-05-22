@@ -119,3 +119,7 @@ def my_find_duplicates(array)
   end
   return duplicates.to_a
 end
+
+def my_find_most_frequent_words(array)
+  puts array.length
+end

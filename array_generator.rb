@@ -1,3 +1,5 @@
+# require 'lorem_ipsum.rb' has been moved to inside any method where it is needed
+
 class ArrayGenerator
 
   attr_reader :array
@@ -20,6 +22,12 @@ class ArrayGenerator
 
   def int_array_with_duplicates_shuffle(counter, test_array_increment)
     Array.new(counter * test_array_increment) { |i| i = rand(counter * test_array_increment * 0.75) }
+  end
+
+  def lorem_ipsum(counter, test_array_increment)
+    require './lorem_ipsum.rb'
+    Array.new(counter * test_array_increment) { |i| i = $lorem_ipsum_array[i] }
+    # lorem_ipsum_array[0..(counter * test_array_increment)]
   end
 
 end
