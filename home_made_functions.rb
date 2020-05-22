@@ -59,7 +59,7 @@ def my_binary_sort(array)
   [return_array_zero, return_array_one].flatten
 end
 
-def my_find_duplicates(array)
+def my_find_duplicates_1(array)
   return_array = []
   counter = 0
   array.length.times do
@@ -68,7 +68,7 @@ def my_find_duplicates(array)
     array[counter+1..-1].each do |element|
       if element == array[counter]
         duplicate_found = true
-        break
+        # break
       end
     end
     if duplicate_found == true
@@ -84,4 +84,21 @@ def my_find_duplicates(array)
     counter += 1
   end
   return_array
+end
+
+# my_find_duplicates_2
+def my_find_duplicates(array)
+  return_array = []
+  seen_hash = {}
+  array.each do |element|
+    if seen_hash.has_key?(element) == 1
+      seen_hash[element] = true
+    elsif seen_hash.has_key?(element) == 1
+      if seen_hash[element] = 1
+        return_array << element
+        seen_hash[element] =+ 1
+      end
+    end
+  end
+return_array
 end
