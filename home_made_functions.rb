@@ -89,7 +89,7 @@ def my_find_duplicates_1(array)
 end
 
 # my_find_duplicates_2
-def my_find_duplicates_2(array)
+def my_find_duplicates(array)
   return_array = []
   seen_hash = {}
   array.each do |element|
@@ -106,7 +106,7 @@ def my_find_duplicates_2(array)
 end
 
 # my_find_duplicates_3
-def my_find_duplicates(array)
+def my_find_duplicates_3(array)
   return_array = []
   seen = Set.new
   duplicates = Set.new
@@ -121,5 +121,16 @@ def my_find_duplicates(array)
 end
 
 def my_find_most_frequent_words(array)
-  puts array.length
+  count_hash = {}
+  array.each do |element|
+    if count_hash.has_key?(element) == true
+      count_hash[element] += 1
+    elsif count_hash.has_key?(element) == false
+      count_hash[element] = 1
+    end
+  end
+  p count_hash.max_by { |k, v| v }
+
+
+
 end
