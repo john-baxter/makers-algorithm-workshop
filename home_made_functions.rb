@@ -1,3 +1,5 @@
+require 'set'
+
 def my_reverse(array)
   return_array = []
   while array.length != 0
@@ -87,7 +89,7 @@ def my_find_duplicates_1(array)
 end
 
 # my_find_duplicates_2
-def my_find_duplicates(array)
+def my_find_duplicates_2(array)
   return_array = []
   seen_hash = {}
   array.each do |element|
@@ -100,5 +102,20 @@ def my_find_duplicates(array)
       end
     end
   end
-return_array
+  return_array
+end
+
+# my_find_duplicates_3
+def my_find_duplicates(array)
+  return_array = []
+  seen = Set.new
+  duplicates = Set.new
+  array.each do |element|
+    if !seen.include?(element)
+      seen << element
+    else
+      duplicates << element
+    end
+  end
+  return duplicates.to_a
 end
