@@ -121,7 +121,10 @@ def my_find_duplicates_3(array)
 end
 
 def my_find_most_frequent_words(array)
+  return nil if array.length == 0
+  return array if array.length < 3
   count_hash = {}
+  result_array = []
   array.each do |element|
     if count_hash.has_key?(element) == true
       count_hash[element] += 1
@@ -129,8 +132,8 @@ def my_find_most_frequent_words(array)
       count_hash[element] = 1
     end
   end
-  p count_hash.max_by { |k, v| v }
-
-
-
+  result_array << count_hash.max_by { |k, v| v }
+  count_hash.delete_if { |k, v| k == result_array[0][0] }
+  result_array << count_hash.max_by { |k, v| v }
+  [result_array[0][0], result_array[1][0]]
 end

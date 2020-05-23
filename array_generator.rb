@@ -26,7 +26,8 @@ class ArrayGenerator
 
   def lorem_ipsum(counter, test_array_increment)
     require './lorem_ipsum.rb'
-    Array.new(counter * test_array_increment) { |i| i = $lorem_ipsum_array[rand($lorem_ipsum_array.length)] }
+    Array.new(counter * test_array_increment) { |i|
+    i = $lorem_ipsum_array[rand($lorem_ipsum_array.length)] }
   end
 
 end
