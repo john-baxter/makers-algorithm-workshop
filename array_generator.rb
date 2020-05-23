@@ -30,4 +30,8 @@ class ArrayGenerator
     i = $lorem_ipsum_array[rand($lorem_ipsum_array.length)] }
   end
 
+  def fibonacci_start(counter, test_array_increment)
+    [0, 1, counter, test_array_increment]
+  end
+
 end
