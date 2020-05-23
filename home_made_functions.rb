@@ -8,6 +8,7 @@ def my_reverse(array)
   return_array
 end
 
+# my_shuffle_1
 def my_shuffle_1(array)
   return_array = []
   while array.length != 0
@@ -16,6 +17,7 @@ def my_shuffle_1(array)
   return_array
 end
 
+# my_shuffle_2
 def my_shuffle_2(array)
   return_array = []
   array.each do |element|
@@ -24,6 +26,7 @@ def my_shuffle_2(array)
   return_array
 end
 
+# my_shuffle_3
 def my_shuffle_3(array)
   return_array = Array.new(array.length) { |i| nil }
   array.each do |element|
@@ -61,6 +64,7 @@ def my_binary_sort(array)
   [return_array_zero, return_array_one].flatten
 end
 
+# my_find_duplicates_1
 def my_find_duplicates_1(array)
   return_array = []
   counter = 0
@@ -89,7 +93,7 @@ def my_find_duplicates_1(array)
 end
 
 # my_find_duplicates_2
-def my_find_duplicates_2(array)
+def my_find_duplicates(array)
   return_array = []
   seen_hash = {}
   array.each do |element|
@@ -106,7 +110,7 @@ def my_find_duplicates_2(array)
 end
 
 # my_find_duplicates_3
-def my_find_duplicates(array)
+def my_find_duplicates_3(array)
   return_array = []
   seen = Set.new
   duplicates = Set.new
@@ -118,4 +122,22 @@ def my_find_duplicates(array)
     end
   end
   return duplicates.to_a
+end
+
+def my_find_most_frequent_words(array)
+  return nil if array.length == 0
+  return array if array.length < 3
+  count_hash = {}
+  result_array = []
+  array.each do |element|
+    if count_hash.has_key?(element) == true
+      count_hash[element] += 1
+    elsif count_hash.has_key?(element) == false
+      count_hash[element] = 1
+    end
+  end
+  result_array << count_hash.max_by { |k, v| v }
+  count_hash.delete_if { |k, v| k == result_array[0][0] }
+  result_array << count_hash.max_by { |k, v| v }
+  [result_array[0][0], result_array[1][0]]
 end
