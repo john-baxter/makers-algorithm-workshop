@@ -16,10 +16,3 @@ attempt = TestLooping.new
 attempt.times_loop(:my_find_most_frequent_words, :lorem_ipsum)
 
 # attempt.times_loop(:function, :array_generator)
-
-# my_find_most_frequent_words($test_lorem_ipsum)
-
-# p $test_lorem_ipsum
-
-# p array = ArrayGenerator.new(:lorem_ipsum, 1, 200)
-# p array = ArrayGenerator.new(:int_array_sequential, 1, 200)

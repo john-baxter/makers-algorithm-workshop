@@ -129,4 +129,23 @@ return the return array
 *(possibly except the last one?)
 ```
 
+### 23 May 2020
+### 20200523
 
+#### Update
+
+The 'brute force' duplicate search worked as expected, and was very time-consuming to run the tests with - againb as expected.\
+Two more versions have been made; one using a hash and the other implementing a Set as discussed above. Interestingly the hash method appears to be more efficient than the set method so this should be investigated further. As this is the first time I have worked with the set datatype is is conceivable that there is a small adjustment that could change this.
+
+#### Further update
+There is now a function for finding the most commonly occuring words in an array of words. This is the first version; further updates to attempt will be to see if therer is a way to avoid iterating through the hash by value. The pseudocode plan for this is (roughly) to 'flip' the hash around so that the numbers become the keys and the values become the words (array of words in the event that multiple words have the same frequency.):
+```
+IF key does not exist
+THEN make key: [empty array]
+
+push value into array
+
+return value corresponding to highest value key
+```
+This method seems to be easily compatible with an additional functionality to return more than two words in the event there is a tie in frequencies.\
+Dealing with the ties will be implemented as an extra and thimed as a separate test run.

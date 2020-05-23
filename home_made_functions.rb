@@ -8,6 +8,7 @@ def my_reverse(array)
   return_array
 end
 
+# my_shuffle_1
 def my_shuffle_1(array)
   return_array = []
   while array.length != 0
@@ -16,6 +17,7 @@ def my_shuffle_1(array)
   return_array
 end
 
+# my_shuffle_2
 def my_shuffle_2(array)
   return_array = []
   array.each do |element|
@@ -24,6 +26,7 @@ def my_shuffle_2(array)
   return_array
 end
 
+# my_shuffle_3
 def my_shuffle_3(array)
   return_array = Array.new(array.length) { |i| nil }
   array.each do |element|
@@ -61,6 +64,7 @@ def my_binary_sort(array)
   [return_array_zero, return_array_one].flatten
 end
 
+# my_find_duplicates_1
 def my_find_duplicates_1(array)
   return_array = []
   counter = 0
