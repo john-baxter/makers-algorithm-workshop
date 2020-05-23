@@ -148,8 +148,6 @@ def fibonacci_sequence_generator(array)
   n_equals = (counter * increment)
   while array.length < n_equals do 
     array.push(array[-2] + array[-1])
-    # break if array.length = n_equals
   end
-  puts array.last
   return array
 end
