@@ -141,3 +141,15 @@ def my_find_most_frequent_words(array)
   result_array << count_hash.max_by { |k, v| v }
   [result_array[0][0], result_array[1][0]]
 end
+
+def fibonacci_sequence_generator(array)
+  increment = array.pop
+  counter = array.pop
+  n_equals = (counter * increment)
+  while array.length < n_equals do 
+    array.push(array[-2] + array[-1])
+    # break if array.length = n_equals
+  end
+  puts array.last
+  return array
+end
