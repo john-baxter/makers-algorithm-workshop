@@ -142,7 +142,7 @@ def my_find_most_frequent_words(array)
   [result_array[0][0], result_array[1][0]]
 end
 
-def fibonacci_sequence_generator(array)
+def my_fibonacci_sequence_generator(array)
   increment = array.pop
   counter = array.pop
   n_equals = (counter * increment)
