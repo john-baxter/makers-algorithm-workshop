@@ -174,9 +174,10 @@ def my_find_most_frequent_words(array)
   end
 end
 
-def my_fibonacci_sequence_generator(array)
-  increment = array.pop
-  counter = array.pop
+def my_fibonacci_sequence_generator(hash)
+  increment = hash[:test_array_increment]
+  counter = hash[:counter]
+  array = hash[:array]
   n_equals = (counter * increment)
   while array.length < n_equals do 
     array.push(array[-2] + array[-1])
