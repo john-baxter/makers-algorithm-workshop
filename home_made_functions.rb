@@ -150,7 +150,6 @@ def my_find_most_frequent_words(array)
   count_hash = {}
   frequency_hash = {}
   result_array = []
-
   
   array.each do |element|
     if count_hash.has_key?(element) == true
@@ -169,32 +168,10 @@ def my_find_most_frequent_words(array)
 
   result_array << frequency_hash[frequency_hash.keys.max]
   if result_array.length >= 2
-    # puts result_array
     return result_array
   else
-    # puts result_array.push(frequency_hash[frequency_hash.keys.sort[-2]]).flatten
     return result_array.push(frequency_hash[frequency_hash.keys.sort[-2]]).flatten
   end
-  # p frequency_hash[frequency_hash.keys.max]
-
-  # p frequency_hash[frequency_hash.keys.sort[-2]]
-
-  # p frequency_hash.keys.sort
-  
-  # # puts frequency_hash
-  # # p frequency_hash.keys.max
-  # p frequency_hash[frequency_hash.keys.max]
-
-  # # p frequency_hash[(frequency_hash.delete_if { |k, v| k = frequency_hash.keys.max }).keys.max]
-  # # p frequency_hash[frequency_hash.delete_if { |k, v| k = frequency_hash.keys.max }]
-
-  # p frequency_hash[frequency_hash
-  # .delete_if {|k,v|k = frequency_hash.keys.max}
-  # .keys.max]
-
-
-
-
 end
 
 def my_fibonacci_sequence_generator(array)

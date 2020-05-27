@@ -17,7 +17,3 @@ attempt.times_loop(:my_find_most_frequent_words, :lorem_ipsum)
 # attempt.times_loop(:my_fibonacci_sequence_generator, :fibonacci_start)
 
 # attempt.times_loop(:function, :array_generator)
-
-# my_find_most_frequent_words($test_lorem_ipsum)
-
-
