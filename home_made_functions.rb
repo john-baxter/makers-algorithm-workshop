@@ -174,7 +174,8 @@ def my_find_most_frequent_words(array)
   end
 end
 
-def my_fibonacci_sequence_generator(hash)
+# my_fibonacci_sequence_generator_1
+def my_fibonacci_sequence_generator_1(hash)
   increment = hash[:test_array_increment]
   counter = hash[:counter]
   array = hash[:array]
@@ -185,6 +186,29 @@ def my_fibonacci_sequence_generator(hash)
   return array
 end
 
-def access_element_neg_two(array)
+def test_access_element_neg_two(array)
   return array[-2]
+end
+
+def test_addition(int)
+  1000000.times do
+    int + int
+  end
+end
+
+# my_fibonacci_sequence_generator_2
+def my_fibonacci_sequence_generator_2(hash)
+  array = hash[:array]
+  n_equals = (hash[:counter] * hash[:test_array_increment])
+  while array.length <= n_equals
+    last = array.pop(2)
+    last << last.sum
+    array = array.push(last).flatten!
+  end
+  return array
+end
+
+# my_fibonacci_sequence_generator_3
+def my_fibonacci_sequence_generator
+  # use the array with all the 'nils' and increment through it
 end
