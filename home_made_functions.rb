@@ -124,7 +124,8 @@ def my_find_duplicates_3(array)
   return duplicates.to_a
 end
 
-def my_find_most_frequent_words(array)
+# my_find_most_frequent_words_1
+def my_find_most_frequent_words_1(array)
   return nil if array.length == 0
   return array if array.length < 3
   count_hash = {}
@@ -140,6 +141,60 @@ def my_find_most_frequent_words(array)
   count_hash.delete_if { |k, v| k == result_array[0][0] }
   result_array << count_hash.max_by { |k, v| v }
   [result_array[0][0], result_array[1][0]]
+end
+
+# my_find_most_frequent_words_2
+def my_find_most_frequent_words(array)
+  return nil if array.length == 0
+  return array if array.length < 3
+  count_hash = {}
+  frequency_hash = {}
+  result_array = []
+
+  
+  array.each do |element|
+    if count_hash.has_key?(element) == true
+      count_hash[element] += 1
+    elsif count_hash.has_key?(element) == false
+      count_hash[element] = 1
+    end
+  end
+
+  count_hash.each do |word, count|
+    if frequency_hash.has_key?(count) == false
+      frequency_hash[count] = []
+    end
+    frequency_hash[count] << word
+  end
+
+  result_array << frequency_hash[frequency_hash.keys.max]
+  if result_array.length >= 2
+    # puts result_array
+    return result_array
+  else
+    # puts result_array.push(frequency_hash[frequency_hash.keys.sort[-2]]).flatten
+    return result_array.push(frequency_hash[frequency_hash.keys.sort[-2]]).flatten
+  end
+  # p frequency_hash[frequency_hash.keys.max]
+
+  # p frequency_hash[frequency_hash.keys.sort[-2]]
+
+  # p frequency_hash.keys.sort
+  
+  # # puts frequency_hash
+  # # p frequency_hash.keys.max
+  # p frequency_hash[frequency_hash.keys.max]
+
+  # # p frequency_hash[(frequency_hash.delete_if { |k, v| k = frequency_hash.keys.max }).keys.max]
+  # # p frequency_hash[frequency_hash.delete_if { |k, v| k = frequency_hash.keys.max }]
+
+  # p frequency_hash[frequency_hash
+  # .delete_if {|k,v|k = frequency_hash.keys.max}
+  # .keys.max]
+
+
+
+
 end
 
 def my_fibonacci_sequence_generator(array)
