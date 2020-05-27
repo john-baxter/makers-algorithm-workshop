@@ -184,3 +184,7 @@ def my_fibonacci_sequence_generator(hash)
   end
   return array
 end
+
+def access_element_neg_two(array)
+  return array[-2]
+end
