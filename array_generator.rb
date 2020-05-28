@@ -38,18 +38,15 @@ class ArrayGenerator
   end
 
   # fibonacci_start_2
-  def fibonacci_start(counter, test_array_increment)
+  def fibonacci_start_2(counter, test_array_increment)
     array = Array.new(counter * test_array_increment)
     array[0] = 0
     array[1] = 1
-    # p array
-    # {array: [0, 1],
-    # counter: counter,
-    # test_array_increment: test_array_increment}
   end
 
-  def return_counter(counter, test_array_increment)
-    counter
+  def nested_array_to_flatten(counter, test_array_increment)
+    array = Array.new(counter * test_array_increment)
+    array.push(Array.new(3) { |i| i = rand(100) })
   end
 
 end

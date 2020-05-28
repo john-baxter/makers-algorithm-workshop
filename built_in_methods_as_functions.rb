@@ -9,3 +9,21 @@ end
 def built_in_sort(array)
   array.sort
 end
+
+def test_access_element_neg_two(array)
+  return array[-2]
+end
+
+def test_addition(int)
+  1000000.times do
+    int + int
+  end
+end
+
+def return_integer(counter, test_array_increment)
+  counter
+end
+
+def test_flaten(array)
+  array.flatten
+end

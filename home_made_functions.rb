@@ -186,16 +186,6 @@ def my_fibonacci_sequence_generator_1(hash)
   return array
 end
 
-def test_access_element_neg_two(array)
-  return array[-2]
-end
-
-def test_addition(int)
-  1000000.times do
-    int + int
-  end
-end
-
 # my_fibonacci_sequence_generator_2
 def my_fibonacci_sequence_generator_2(hash)
   array = hash[:array]
@@ -209,6 +199,11 @@ def my_fibonacci_sequence_generator_2(hash)
 end
 
 # my_fibonacci_sequence_generator_3
-def my_fibonacci_sequence_generator
-  # use the array with all the 'nils' and increment through it
+def my_fibonacci_sequence_generator_3
+  incrementor = 2
+  while incrementor <= array.length
+    array[incrementor] = array[incrementor - 1] + array[incrementor - 2]
+    incrementor += 1
+  end
+  return array
 end
