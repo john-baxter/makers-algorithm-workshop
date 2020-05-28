@@ -24,6 +24,8 @@ def return_integer(counter, test_array_increment)
   counter
 end
 
-def test_flaten(array)
-  array.flatten
+def test_flatten(array)
+  ((array.length * 0.1).to_i).times do  
+    array.flatten
+  end
 end

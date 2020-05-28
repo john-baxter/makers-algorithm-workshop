@@ -17,8 +17,9 @@ attempt = TestLooping.new
 # attempt.times_loop(:my_fibonacci_sequence_generator_2, :fibonacci_start_1)
 # attempt.times_loop(:test_access_element_neg_two, :int_array_with_duplicates_shuffle)
 # attempt.times_loop(:test_addition, :return_integer)
+# attempt.times_loop(:test_flatten, :nested_array_to_flatten)
+attempt.times_loop(:my_fibonacci_sequence_generator_3, :fibonacci_start_2)
 
-attempt.times_loop(:test_flatten, :nested_array_to_flatten)
 # attempt.times_loop(:function, :array_generator)
 
 # TO DO
