@@ -199,11 +199,11 @@ def my_fibonacci_sequence_generator_2(hash)
 end
 
 # my_fibonacci_sequence_generator_3
-def my_fibonacci_sequence_generator_3
+def my_fibonacci_sequence_generator(array)
   incrementor = 2
-  while incrementor <= array.length
-    array[incrementor] = array[incrementor - 1] + array[incrementor - 2]
-    incrementor += 1
-  end
+  (array.length-2).times do
+    array[incrementor] = (array[incrementor - 1] + array[incrementor - 2])
+      incrementor += 1
+    end
   return array
 end

@@ -22,7 +22,3 @@ attempt.times_loop(:my_fibonacci_sequence_generator_3, :fibonacci_start_2)
 
 # attempt.times_loop(:function, :array_generator)
 
-# TO DO
-# test_flatten with nested_array_to_flatten
-# fibonacci3 with fibonacci_start_2
-# fibonacci3 with fibonacci_start_1

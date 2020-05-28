@@ -42,6 +42,7 @@ class ArrayGenerator
     array = Array.new(counter * test_array_increment)
     array[0] = 0
     array[1] = 1
+    return array
   end
 
   def nested_array_to_flatten(counter, test_array_increment)
