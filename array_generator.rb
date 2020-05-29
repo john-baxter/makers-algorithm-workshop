@@ -30,8 +30,24 @@ class ArrayGenerator
     i = $lorem_ipsum_array[rand($lorem_ipsum_array.length)] }
   end
 
-  def fibonacci_start(counter, test_array_increment)
-    [0, 1, counter, test_array_increment]
+  # fibonacci_start_1
+  def fibonacci_start_1(counter, test_array_increment)
+    {array: [0, 1],
+    counter: counter,
+    test_array_increment: test_array_increment}
+  end
+
+  # fibonacci_start_2
+  def fibonacci_start_2(counter, test_array_increment)
+    array = Array.new(counter * test_array_increment)
+    array[0] = 0
+    array[1] = 1
+    return array
+  end
+
+  def nested_array_to_flatten(counter, test_array_increment)
+    array = Array.new(counter * test_array_increment)
+    array.push(Array.new(3) { |i| i = rand(100) })
   end
 
 end
