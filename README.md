@@ -149,3 +149,49 @@ return value corresponding to highest value key
 ```
 This method seems to be easily compatible with an additional functionality to return more than two words in the event there is a tie in frequencies.\
 Dealing with the ties will be implemented as an extra and thimed as a separate test run.
+
+
+### 29 May 2020
+### 20200529
+#### Update
+
+The new most frequent words search has worked and seems to be better than the previous version - in terms of the gradient; the order is still linear. 
+
+The next function worked on was generate a fibonacci sequence. There are a few versions of this (not updated for a few days while working on this function) and a few versions of the array generator function that goes with fibonacci. There is still uncertainty around why creating a fibonacci sequence should be quadratic. the process is as follows:
+```
+GENERATE array = [0, 1, nil,..., nil]
+```
+Where the number of `nil`s is sufficient to create the desired length of array required by that particular test. This does create an anomolous case for the first test of each run where the array is expected to be empty, so the function has an extra `if` to account for this.\
+0, 1 is the standard beginning for the fibonacci sequence so it is hard coded.
+```
+SET the in-function counter to 2
+LOOP:
+ACCESS the array to get the value at index[counter-1]
+ACCESS the array to get the value at index[counter-2]
+ADD these two numbers together
+ASSIGN this value to the `nil` at index[counter]
+INCREMENT the in-function counter
+REPEAT until final element has been assigned
+```
+Which appears to consist of a series of steps which are the same for each repitition and only increase with the length of the array - which is expected to be a linear relationship, but the data are showing a quadratic relationship.\
+Some of the component parts of the function have been broken down and tested independently:
+- addition
+- accessing an element at a known index
+- flatten
+
+Flatten was seen to be creating a large reduction in the efficiency of the function (and shows a quadratic relationship) so was eliminated and the function redesigned. It is still not clear exactly why flatten is quadratic.
+
+### Conclusion (fibonacci)
+The only conclusion at present is that more work will be rewquired to understand why the relationship is like it is. 
+
+### Next Steps
+
+The next task is to prepare versions of sorting algorithms:
+- selection sort
+- insertion sort
+- merge sort 
+- quick sort
+
+Which were covered in the recent workshop. The expectation is to do them in the orded listed above and show the increasing efficiency* of each one. 
+
+*it has been pointed out that quicksort is highly inefficient when the array starts out alrerady sorted. This situation will be included for comparison at each stage.
