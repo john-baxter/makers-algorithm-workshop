@@ -207,3 +207,36 @@ def my_fibonacci_sequence_generator(array)
     end
   return array
 end
+
+def my_selection_sort(array)
+  return_array = []
+  (array.length).times do
+    return_array.push(array.min)
+    array = array.difference(return_array)
+  end
+  return_array
+end
+
+def my_insertion_sort(array)
+  return_array = [array.pop]
+  while array.length != 0
+    if array.last > return_array.last
+      return_array << array.pop
+    else
+      idx_counter = 0
+      while return_array[idx_counter] < array.last
+        idx_counter += 1
+      end
+      return_array.insert(idx_counter, array.pop)
+    end
+  end
+  return_array
+end
+
+def my_merge_sort(array)
+  # TO DO
+end
+
+def my_quick_sort(array)
+  # TO DO
+end
