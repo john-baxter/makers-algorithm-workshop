@@ -261,3 +261,16 @@ def my_split_array_left_and_right(array)
   array_right_half = array[array.length/2..-1]
   return array_left_half, array_right_half
 end
+
+def my_split_array_lower_higher_than_first(array)
+  array_low_half = []
+  array_high_half = []
+  pivot = array.first
+  return array if array.length < 2
+  array[1..-1].each do |element|
+    p element
+    array_low_half.push(element) if element <= pivot
+    array_high_half.push(element) if element > pivot
+  end
+  return array_low_half, pivot, array_high_half
+end

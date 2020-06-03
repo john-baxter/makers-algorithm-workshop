@@ -30,6 +30,7 @@ require './array_generator.rb'
 # attempt_.times_loop(:my_insertion_sort, :int_array_shuffle)
 
 
-testing_array = [1,2,3,4]
+testing_array = [1,2,3,4,5,6,7,8,9].shuffle
 # my_early_return_for_sorting(testing_array)
-p my_split_array_left_and_right(testing_array)
+# p my_split_array_left_and_right(testing_array)
+p my_split_array_lower_higher_than_first(testing_array)
