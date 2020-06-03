@@ -236,7 +236,7 @@ end
 def my_merge_sort(array)
   # TO DO
   # early return IF statement
-  # make function (below) to split the array into two parts - left and right halves
+  # make function (below) to split the array into two parts - left and right ~halves
   # recursively call this function on both halves
   # make function (below) to combine two arrays together using 'stacks of cards' analogy.
 end
@@ -260,6 +260,28 @@ def my_split_array_left_and_right(array)
   array_left_half = array[0...array.length/2]
   array_right_half = array[array.length/2..-1]
   return array_left_half, array_right_half
+  # return looks like: [[left], [right]]
+end
+
+def my_merge_two_ordered_arays(array_of_two_arrays)
+  # receives return value of my_split_array_left_and_right
+  left_half = array_of_two_arrays[0]
+  right_half = array_of_two_arrays[1]
+  return_array = []
+  left_idx = 0
+  right_idx = 0
+  while left_idx < left_half.length && right_idx < right_half.length
+    if left_half[left_idx] <= right_half[right_idx]
+      return_array << left_half[left_idx]
+      left_idx += 1
+    elsif left_half[left_idx] > right_half[right_idx]
+      return_array << right_half[right_idx]
+      right_idx += 1
+    end
+  end
+  return_array << left_half[left_idx..-1]
+  return_array << right_half[right_idx..-1]
+  return_array.flatten
 end
 
 def my_split_array_lower_higher_than_first(array)
@@ -268,7 +290,6 @@ def my_split_array_lower_higher_than_first(array)
   pivot = array.first
   return array if array.length < 2
   array[1..-1].each do |element|
-    p element
     array_low_half.push(element) if element <= pivot
     array_high_half.push(element) if element > pivot
   end
