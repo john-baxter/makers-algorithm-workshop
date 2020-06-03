@@ -254,3 +254,10 @@ def my_early_return_for_sorting(array)
     return array
   end
 end
+
+def my_split_array_left_and_right(array)
+  return array if array.length < 2
+  array_left_half = array[0...array.length/2]
+  array_right_half = array[array.length/2..-1]
+  return array_left_half, array_right_half
+end

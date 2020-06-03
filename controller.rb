@@ -4,6 +4,9 @@ require './built_in_methods_as_functions.rb'
 require './lorem_ipsum.rb'
 require './array_generator.rb'
 
+# TO DO
+# fix issue in shuffle with the digits not swapping correctly.
+
 # attempt = TestLooping.new
 # attempt.times_loop(:built_in_shuffle, :int_array_sequential)
 # attempt.times_loop(:built_in_reverse, :int_array_sequential)
@@ -26,5 +29,7 @@ require './array_generator.rb'
 # attempt_ = TestLooping.new
 # attempt_.times_loop(:my_insertion_sort, :int_array_shuffle)
 
-# TO DO
-# fix issue in shuffle with the digits not swapping correctly.
+
+testing_array = [1,2,3,4]
+# my_early_return_for_sorting(testing_array)
+p my_split_array_left_and_right(testing_array)
