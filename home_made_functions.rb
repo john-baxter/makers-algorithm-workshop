@@ -235,8 +235,22 @@ end
 
 def my_merge_sort(array)
   # TO DO
+  # early return IF statement
+  # make function (below) to split the array into two parts - left and right halves
+  # recursively call this function on both halves
+  # make function (below) to combine two arrays together using 'stacks of cards' analogy.
 end
 
 def my_quick_sort(array)
   # TO DO
+  # early return IF statement
+  # make function (below) to split array into two 'halves' - lower and higher than array.first
+  # recursively call this function on both halves
+  # make function (below) to combine these two arrays together using 'low+pivot+high' analogy
+end
+
+def my_early_return_for_sorting(array)
+  if array.length < 2
+    return array
+  end
 end
