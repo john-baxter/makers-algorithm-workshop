@@ -260,7 +260,7 @@ def my_split_array_left_and_right(array)
   array_left_half = array[0...array.length/2]
   array_right_half = array[array.length/2..-1]
   return array_left_half, array_right_half
-  # return looks like: [[left], [right]]
+  # return value looks like: [[left], [right]]
 end
 
 def my_merge_two_ordered_arays(array_of_two_arrays)
@@ -294,4 +294,10 @@ def my_split_array_lower_higher_than_first(array)
     array_high_half.push(element) if element > pivot
   end
   return array_low_half, pivot, array_high_half
+  # return value looks like: [[low], pivot, [high]]
+end
+
+def my_merge_array_pivot_plus_array(array_of_array_int_array)
+  # receives return value from my_split_array_lower_higher_than_first
+  return array_of_array_int_array.flatten
 end
