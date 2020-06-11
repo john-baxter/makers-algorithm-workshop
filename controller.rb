@@ -30,8 +30,3 @@ attempt = TestLooping.new
 # attempt.times_loop(:function, :array_generator)
 # attempt_ = TestLooping.new
 # attempt_.times_loop(:my_insertion_sort, :int_array_shuffle)
-
-test_array = [*1..100].shuffle
-p test_array
-# p my_quick_sort(test_array)
-p my_merge_sort(test_array)

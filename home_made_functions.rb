@@ -302,7 +302,5 @@ def my_merge_array_pivot_plus_array(array_one, int, array_two)
 end
 
 def my_early_return_check_for_sorting(array)
-  # array.length < 2 ? true : false
-  array == [] ||
-  array.length == 1 ? true : false
+  array.length < 2 ? true : false
 end
