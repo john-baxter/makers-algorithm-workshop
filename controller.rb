@@ -4,9 +4,6 @@ require './built_in_methods_as_functions.rb'
 require './lorem_ipsum.rb'
 require './array_generator.rb'
 
-# TO DO
-# fix issue in shuffle with the digits not swapping correctly.
-
 attempt = TestLooping.new
 # attempt.times_loop(:built_in_shuffle, :int_array_sequential)
 # attempt.times_loop(:built_in_reverse, :int_array_sequential)

@@ -46,7 +46,7 @@ def my_shuffle(array)
   return_array = []
   while array.length != 0
     rand_index = rand(array.length)
-    array[rand_index], array[-1] = array[rand_index]
+    array[rand_index], array[-1] = array[-1], array[rand_index]
     return_array << array.pop
   end
 end
