@@ -234,34 +234,15 @@ def my_insertion_sort(array)
 end
 
 def my_merge_sort(array)
-  # TO DO
-  # early return IF statement
-  if array.length < 2
-    return array
-    # return_array = array
-  else
-    # puts "break down"
-    array_left_half = array[0...array.length/2]
-    # p array_left_half
-    array_right_half = array[array.length/2..-1]
-    # p array_right_half
-    # my_merge_sort(array_left_half)
-    # my_merge_sort(array_right_half)
-
-    array_left_half = my_merge_sort(array_left_half)
-    array_right_half = my_merge_sort(array_right_half)
-
-
-    return_array = my_merge_two_ordered_arays(array_left_half, array_right_half)
-    # p return_array
-  end
-  return_array
-  # set variables
-  # make function (below) to split the array into two parts - left and right ~halves
-  # my_split_array_left_and_right(array)
-  # recursively call this function on both halves
+  return array if my_early_return_check_for_sorting(array)
   
-  # make function (below) to combine two arrays together using 'stacks of cards' analogy.
+  array_left_half = my_split_array_left_and_right(array)[0]
+  array_right_half = my_split_array_left_and_right(array)[1]
+
+  array_left_half = my_merge_sort(array_left_half)
+  array_right_half = my_merge_sort(array_right_half)
+
+  my_merge_two_ordered_arays(array_left_half, array_right_half)
 end
 
 def my_split_array_left_and_right(array)
@@ -269,20 +250,13 @@ def my_split_array_left_and_right(array)
   array_left_half = array[0...array.length/2]
   array_right_half = array[array.length/2..-1]
   return array_left_half, array_right_half
-  # return value looks like: [[left], [right]]
 end
 
-# def my_merge_two_ordered_arays(array_of_two_arrays)
 def my_merge_two_ordered_arays(left_half, right_half)
-  # receives return value of my_split_array_left_and_right
-  # p left_half, right_half
-  # left_half = array_of_two_arrays[0]
-  # right_half = array_of_two_arrays[1]
   return_array = []
   left_idx = 0
   right_idx = 0
   while left_idx < left_half.length && right_idx < right_half.length
-    # p [left_half[left_idx], right_half[right_idx]]
     break if left_idx > left_half.length
     break if right_idx > right_half.length
     if left_half[left_idx] <= right_half[right_idx]
@@ -292,26 +266,23 @@ def my_merge_two_ordered_arays(left_half, right_half)
       return_array << right_half[right_idx]
       right_idx += 1
     end
-    # puts "combine"
-    # p return_array
   end
   return_array << left_half[left_idx..-1]
   return_array << right_half[right_idx..-1]
-  # p return_array.flatten
   return_array.flatten
 end
 
 def my_quick_sort(array)
-  # TO DO
-  # early return IF statement
-  return array if array.length < 2
-  # make function (below) to split array into two 'halves' - lower and higher than array.first
-  my_split_array_lower_higher_than_first(array)
-  # recursively call this function on both halves
-  my_quick_sort(my_split_array_lower_higher_than_first[0])
-  my_quick_sort(my_split_array_lower_higher_than_first[2])
-  # make function (below) to combine these two arrays together using 'low+pivot+high' analogy
-  my_merge_array_pivot_plus_array(my_split_array_lower_higher_than_first)
+  return array if my_early_return_check_for_sorting(array)
+  
+  array_low_half = my_split_array_lower_higher_than_first(array)[0]
+  pivot = my_split_array_lower_higher_than_first(array)[1]
+  array_high_half = my_split_array_lower_higher_than_first(array)[2]
+
+  array_low_half = my_quick_sort(array_low_half)
+  array_high_half = my_quick_sort(array_high_half)
+
+  my_merge_array_pivot_plus_array(array_low_half, pivot, array_high_half)
 end
 
 def my_split_array_lower_higher_than_first(array)
@@ -324,17 +295,14 @@ def my_split_array_lower_higher_than_first(array)
     array_high_half.push(element) if element > pivot
   end
   return array_low_half, pivot, array_high_half
-  # return value looks like: [[low], pivot, [high]]
 end
 
-def my_merge_array_pivot_plus_array(array_of_array_int_array)
-  # receives return value from my_split_array_lower_higher_than_first
-  return array_of_array_int_array.flatten
+def my_merge_array_pivot_plus_array(array_one, int, array_two)
+  return [[array_one], int, [array_two]].flatten
 end
 
-def my_early_return_for_sorting(array)
-  # if array.length < 2
-  #   return array
-  # end
-  return array if array.length < 2
+def my_early_return_check_for_sorting(array)
+  # array.length < 2 ? true : false
+  array == [] ||
+  array.length == 1 ? true : false
 end
