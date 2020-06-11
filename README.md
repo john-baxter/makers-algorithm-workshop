@@ -181,10 +181,10 @@ Some of the component parts of the function have been broken down and tested ind
 
 Flatten was seen to be creating a large reduction in the efficiency of the function (and shows a quadratic relationship) so was eliminated and the function redesigned. It is still not clear exactly why flatten is quadratic.
 
-### Conclusion (fibonacci)
+#### Conclusion (fibonacci)
 The only conclusion at present is that more work will be rewquired to understand why the relationship is like it is. 
 
-### Next Steps
+#### Next Steps
 
 The next task is to prepare versions of sorting algorithms:
 - selection sort
@@ -195,3 +195,43 @@ The next task is to prepare versions of sorting algorithms:
 Which were covered in the recent workshop. The expectation is to do them in the orded listed above and show the increasing efficiency* of each one. 
 
 *it has been pointed out that quicksort is highly inefficient when the array starts out alrerady sorted. This situation will be included for comparison at each stage.
+
+### 11 Jun 2020
+### 20200611
+#### Update
+The four sorting functions have been written and implemented. The data has been added to the spreadsheet.
+Selection and Insertion were relatively straightforward to implement as expected. Merge and Quick were more difficult - also as expected.\  
+Between merge and quick there are seven individual functions, three each and one shared - this is to maintain the SRP and worked well with a bit of effort.\ 
+The seven functions made are as follows:
+
+- check for early return (shared)
+- 2 * split the array (one for each method)
+- 2 * put the array back together (one for each method)
+- 2 * 'main' functions that call the others and implement the recursion (one for each)
+
+Implementing the recursion was a new technique not used before, and almost went perfectly but some assistance was needed and provided by Karla Gardiner. The problem was not really anything to do with the implementation opf the recursion itself but more of a classic error of overlooking that the result of calling a function has to be set equal to a variable at the point it is called; i.e.:
+```ruby
+def recursive_sort_example(array)
+
+    return array if check_early_return == true
+
+    one_half = split_array_function(array)[first]
+    other_half = split_array_function(array)[second]
+
+    one_half = recursive_sort_example(one_half)
+    other_half = recursive_sort_example(other_half)
+
+    result = put_arrays_back_together(one_half, other_half)
+
+    return result
+
+end
+```
+and rather than calling `recursive_sort_example` as being on the RHS of `x_half = ` I was just trying to call it on it's own. This was addressed easily after the input from Karla.\ 
+After this assistance and the function running smoothly, the quick-sort function was implemented with relative ease. One outcome that was intended but was unable to be measured is what happens when QS is run on an array that is already in order. This yielded a `stack level too deep (SystemStackError)` so only two datapoints were able to be recorded without changing the way the test would be run. 
+
+It is also worth noting that the curve on the chart appears to be linear, although logarithmic would be expected. Both shapes have been force-fit into the data, and it is still to be analysed further to see which is a better representation. 
+
+Also of interest MS seems to be 'faster' than QS which is not what was expected. 
+
+Unrelated - an error was noted in the shuffle function. THis will be addressed after the some-made-sort branch has been merged.

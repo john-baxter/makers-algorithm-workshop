@@ -207,3 +207,100 @@ def my_fibonacci_sequence_generator(array)
     end
   return array
 end
+
+def my_selection_sort(array)
+  return_array = []
+  (array.length).times do
+    return_array.push(array.min)
+    array = array.difference(return_array)
+  end
+  return_array
+end
+
+def my_insertion_sort(array)
+  return_array = [array.pop]
+  while array.length != 0
+    if array.last > return_array.last
+      return_array << array.pop
+    else
+      idx_counter = 0
+      while return_array[idx_counter] < array.last
+        idx_counter += 1
+      end
+      return_array.insert(idx_counter, array.pop)
+    end
+  end
+  return_array
+end
+
+def my_merge_sort(array)
+  return array if my_early_return_check_for_sorting(array)
+  
+  array_left_half = my_split_array_left_and_right(array)[0]
+  array_right_half = my_split_array_left_and_right(array)[1]
+
+  array_left_half = my_merge_sort(array_left_half)
+  array_right_half = my_merge_sort(array_right_half)
+
+  my_merge_two_ordered_arays(array_left_half, array_right_half)
+end
+
+def my_split_array_left_and_right(array)
+  return array if array.length < 2
+  array_left_half = array[0...array.length/2]
+  array_right_half = array[array.length/2..-1]
+  return array_left_half, array_right_half
+end
+
+def my_merge_two_ordered_arays(left_half, right_half)
+  return_array = []
+  left_idx = 0
+  right_idx = 0
+  while left_idx < left_half.length && right_idx < right_half.length
+    break if left_idx > left_half.length
+    break if right_idx > right_half.length
+    if left_half[left_idx] <= right_half[right_idx]
+      return_array << left_half[left_idx]
+      left_idx += 1
+    elsif left_half[left_idx] > right_half[right_idx]
+      return_array << right_half[right_idx]
+      right_idx += 1
+    end
+  end
+  return_array << left_half[left_idx..-1]
+  return_array << right_half[right_idx..-1]
+  return_array.flatten
+end
+
+def my_quick_sort(array)
+  return array if my_early_return_check_for_sorting(array)
+  
+  array_low_half = my_split_array_lower_higher_than_first(array)[0]
+  pivot = my_split_array_lower_higher_than_first(array)[1]
+  array_high_half = my_split_array_lower_higher_than_first(array)[2]
+
+  array_low_half = my_quick_sort(array_low_half)
+  array_high_half = my_quick_sort(array_high_half)
+
+  my_merge_array_pivot_plus_array(array_low_half, pivot, array_high_half)
+end
+
+def my_split_array_lower_higher_than_first(array)
+  array_low_half = []
+  array_high_half = []
+  pivot = array.first
+  return array if array.length < 2
+  array[1..-1].each do |element|
+    array_low_half.push(element) if element <= pivot
+    array_high_half.push(element) if element > pivot
+  end
+  return array_low_half, pivot, array_high_half
+end
+
+def my_merge_array_pivot_plus_array(array_one, int, array_two)
+  return [[array_one], int, [array_two]].flatten
+end
+
+def my_early_return_check_for_sorting(array)
+  array.length < 2 ? true : false
+end
