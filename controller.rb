@@ -28,5 +28,3 @@ attempt = TestLooping.new
 # attempt.times_loop(:my_quick_sort, :int_array_sequential)
 
 # attempt.times_loop(:function, :array_generator)
-# attempt_ = TestLooping.new
-# attempt_.times_loop(:my_insertion_sort, :int_array_shuffle)
